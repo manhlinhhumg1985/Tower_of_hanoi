@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="d3/d3.js" type="text/JavaScript"></script>
     <title>Title</title>
+    <style>
+        .frame{
+            border: 1px solid blue;
+        }
+    </style>
 </head>
-<body>
-<button onclick="next1()">
-    NEXT1
-</button>
-<hr>
-<div></div>
-<div class="container" style="padding-top: 8rem;">
+<body class="frame">
+
+<div>
+    <h1 class="text-center">Tower of HaNoi</h1>
+    <div class="text-center">
+
+        <button onclick="next1()">Bat Dau</button>
+    </div>
+
 </div>
+
 <script>
 
     class Disk {
@@ -37,11 +46,12 @@
             return {name: this.name, disks: this.disk}
         }
     }
-    let n=4;
+
+    let n = 4;
     //Tao so luowng dia
-    let arr_disk =[]
-    for(let i=1;i<=n; i++){
-        arr_disk.push("disk" +i);
+    let arr_disk = []
+    for (let i = 1; i <= n; i++) {
+        arr_disk.push("disk" + i);
     }
     let nameTowers = ['TowerA', 'TowerB', 'TowerC']
     let nameDisk2 = [];
@@ -89,7 +99,7 @@
     }
     //lay tong so dia hay chieu cua cac dia
     let get_height = (tower) => {
-        for (i = 1; i <= 3; i++) {
+        for (let i = 1; i <= 3; i++) {
             if (tower1.name === tower) {
                 return tower1.disks.length;
             }
@@ -99,7 +109,6 @@
             else return tower3.disks.length;
         }
     };
-
     //lay ten coc
     let get_name = (tower) => {
         for (let i = 1; i <= 3; i++) {
@@ -120,8 +129,38 @@
         temp2.unshift(name);
     }
 
-    const div = d3.select("body").append("div");
-    const svg = div.append("svg").attr("width", 1800).attr("height", 500);
+    const div = d3.select("body").append("div")
+    const svg = div.append("svg").attr("width", 1200).attr("height", 600)
+    //hàm vẽ cọc
+    let draw_pipe = (x1, y1, x2, y2) => {
+        const line = svg
+            .append("line")
+            .attr("x1", x1)
+            .attr("y1", y1)
+            .attr("x2", x2)
+            .attr("y2", y2)
+            .attr("stroke-width", 10)
+            .attr("stroke", "black");
+    }
+    draw_pipe(100 + (n * 50) / 2, 100, 100 + (n * 50) / 2, n * 50 + 150);
+    draw_pipe(500 + (n * 50) / 2, 100, 500 + (n * 50) / 2, n * 50 + 150);
+    draw_pipe(900 + (n * 50) / 2, 100, 900 + (n * 50) / 2, n * 50 + 150);
+    //Hàm vẽ đế cọc
+    let draw_bottom = (x1, y1, x2, y2) => {
+        const line = svg
+            .append("line")
+            .attr("x1", x1)
+            .attr("y1", y1)
+            .attr("x2", x2)
+            .attr("y2", y2)
+            .attr("stroke-width", 10)
+            .attr("stroke", "black")
+    }
+    let x1_ = 100 + (n * 50) / 2
+    let y1_ = n * 50 + 154
+    //draw_bottom(x1_ - x1_ / 2, y1_, x1_ + x1_ / 2, n * 50 + 155)
+    draw_bottom(100, y1_,100+800+n*50, y1_)
+    //Hàm vẽ đĩa trên cọc ban đầu
     let draw = (sum_disk) => {
         for (let i = 1; i <= sum_disk; i++) {
             let obj = {
@@ -135,40 +174,27 @@
                 .append("rect")
                 .attr("width", i * 50)
                 .attr("height", 50)
-                .attr("x", (n - i)*180/(2*sum_disk))
-                .attr("y", i * 50)
-                .attr("rx",6)
-                .attr("ry",6)
-                .attr("fill", "red")
+                .attr("x", (n - i) * 25 + 100)
+                .attr("y", i * 50 + 100)
+                .attr("rx", 6)
+                .attr("ry", 6)
+                .attr("stroke-width", 3)
+                .attr("stroke", "black")
+                .attr("fill", "grey")
                 .classed("disk" + i, true)
                 .classed("color", true);
 
             obj.name_disk = "disk" + i;
             obj.x_ = 0;
             obj.y_ = i * 50;
-            obj.height = i * 50;
+            obj.height = i * 50+70;
             disk_obj.push(obj)
         }
-        d3.selectAll(".color").style("fill", function () {
-            return "hsl(" + Math.random() * 360 + ",100%,50%)";
-        });
+//        d3.selectAll(".color").style("fill", function () {
+//            return "hsl(" + Math.random() * 360 + ",100%,50%)";
+//        });
     }
     draw(n);
-    let draw_pipe = (x1, y1, x2, y2) => {
-
-        const circle = svg
-            .append("line")
-            .attr("x1", x1)
-            .attr("y1", y1)
-            .attr("x2", x2)
-            .attr("y2", y2)
-            .attr("stroke-width", 2)
-            .attr("stroke", "black");
-    }
-//    draw_pipe(92, 20, 92, 250);
-//    draw_pipe(492, 20, 492, 250);
-//    draw_pipe(892, 20, 892, 250);
-
     //lay toa do cua disk duoc chon
     let get_x = (name) => {
         for (let i = 0; i < disk_obj.length; i++) {
@@ -199,32 +225,22 @@
             }
         }
     }
-    let set_y = (name, dis) => {
-        for (let i = 0; i < disk_obj.length; i++) {
-            if (name === disk_obj[i].name_disk) {
-                disk_obj[i].y_ += dis;
-            }
-        }
-    }
-
     //document.write(get_distance(data[0][1],data[0][2]))
     //document.write(get_height(data[0][2]))
     const next1 = () => {
         for (let i = 0; i < data.length; i++) {
-            let x = get_distance(data[i][1], data[i][2])
-            let begin_y = get_y(data[i][0])
-            console.log("toa do y:", begin_y)//ok
-            let count_disk = get_height(data[i][2])
-            let new_y = n*50 - (count_disk * 50) - begin_y;
+            let x = get_distance(data[i][1], data[i][2])     //Khoang cach dich chuyen giua cac coc
+            let begin_y = get_y(data[i][0])                  //lay toa do hien thoi cua dia duoc chon
+            console.log("toa do y:", begin_y)                 //ok
+            let count_disk = get_height(data[i][2])             //Dem so luong dia cua coc đích
+            let new_y = n * 50 - (count_disk * 50) - begin_y;     // Tọa độ y của đĩa được chọn với 50 là chiều cao của mỗi đĩa
             console.log("gia tri toa do:", new_y)
-            //cap nhap lai so dia cua moi coc
-            update_disk(data[i][0], data[i][1], data[i][2])
+            update_disk(data[i][0], data[i][1], data[i][2])        //cap nhap lai so dia cua moi coc
             console.log("so dia cua tung coc:", tower1.disks.length, tower2.disks.length, tower3.disks.length)
-            //gan do cao cua moi dia di len khoi coc
-            let begin = get_x(data[i][0]);
+            let begin = get_x(data[i][0]);                      //lay toa do x cua dia hien tai
             let hoz = begin + x;
-            let height = get_docao(data[i][0])
-            //tinh tung do y;
+            let height = get_docao(data[i][0])      //gan do cao cua moi dia di len khoi coc
+
             d3.selectAll('.' + data[i][0])
                 .transition()
                 .delay(i * 3000)
@@ -234,8 +250,8 @@
                 .attr("transform", 'translate(' + hoz + ',' + height + ')')
                 .transition()
                 .attr('transform', 'translate(' + hoz + ',' + new_y + ')')
-            set_x(data[i][0], x)
-            // set_y(data[i][0], new_y);
+
+            set_x(data[i][0], x)                            //cap nhat toa độ x cho đĩa
         }
     }
 </script>
