@@ -1,1 +1,1 @@
-# Tower_os_hanoi
+# Tower_of_hanoi
