@@ -43,6 +43,7 @@ Move(3,A,B,C)-->|Move(1,A,B,C)---------------------------> (chuyển đĩa từ 
 * Theo sơ đồ trên thì các bước chạy của thuật toán sẽ đi từ (1)..->(7)
 * Sau mỗi lần chuyển đĩa thì ta sẽ push dữ liệu vào mảng data với data là 1 mảng bên trong có các phần tử là các mảng kết quả được thực hiện ở mỗi lần kết thúc 1 lệnh gọi đệ quy.
 * ví dụ: ở lần 1 kết quả trả ra là 1 mảng ['disk 1', 'Tower A', 'Tower C'] có nghĩa là dịch chuyển 1 đĩa từ A sang C như vậy sau 2^n -1 lần gọi đệ quy thì ta sẽ thu được 1 mảng dữ liệu như sau:
+```javascript
 data = [
             [ 'disk 1', 'Tower A', 'Tower C' ],
             [ 'disk 2', 'Tower A', 'Tower B' ],
@@ -53,6 +54,7 @@ data = [
             [ 'disk 1', 'Tower A', 'Tower C' ]
 
     ]
+```
 * Duyệt mảng data và thực hiện các bước sau:
 * 1. Lấy khoảng cách giữa 2 cọc: ví tại phần tử đầu tiên của mảng data thì sẽ được lấy như sau: x = get_distance( data[0][1], data[0][2]) hàm get_distance là hàm lấy khoảng cách đã được định nghĩa.
 * 2. Lấy tọa độ y hiện thời của đĩa được chọn:  begin_y = get_y(data[0][0]) = get_y("disk1") với hàm get_y(tên disk) là hàm đã được nghĩa
