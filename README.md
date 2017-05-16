@@ -23,7 +23,7 @@
 * DISKS =3          |1. Move(N-1,begin,end,med)
                     |2. Move(1,begin,med,end)
                     |3. Move (N-1,med,begin,end)
-
+```javascript
                     
                                 | Move(1,A,B,C)----------> (chuyển đĩa từ A -> C)(1)
                 |Move(2,A,C,B)->| Move(1,A,C,B)----------> (chuyển đĩa từ A -> B)(2)
@@ -35,6 +35,7 @@ Move(3,A,B,C)-->|Move(1,A,B,C)---------------------------> (chuyển đĩa từ 
                 |Move(2,B,A,C)->| Move(1,B,C,A)----------> (chuyển đĩa từ B -> A)(5)
                                 | Move(1,B,A,C)----------> (chuyển đĩa từ B -> C)(6)
                                 | Move(1,A,B,C)----------> (chuyển đĩa từ A -> C)(7)
+```
 
 
 * Theo sơ đồ trên thì các bước chạy của thuật toán sẽ đi từ (1)..->(7)
