@@ -117,6 +117,21 @@ data = [
 
 ![Image of Ha Noi Tower](IMG_2649.JPG)
 
+## Từ hình vẽ ta có thể tính được tọa độ New_y như sau:
+### Giả sử ta muốn chuyển đĩa 1 từ cọc A sang cọc C thì làm như sau:
+* Đầu tiên tính tọa độ đĩa 1: đĩa 1 có tọa độ ban đầu là y = 50
+* Tính độ cao lớn nhất của đĩa tương đương với độ cao của đĩa cuối cùng = n * 50
+với n là tổng số đĩa, 50 là chiều dày của đĩa.
+* Xác định số đĩa có trên cọc đích (trường hợp này cọc đích giả sử là cọc C) thì số lượng đĩa sẽ là 0 => chiều cao của cọc đích = số đĩa * 50 =0
+* Tọa độ y của đĩa sau khi di chuyển sang cọc C: New_y = n*50 - chiều cao cọc đích - tọa độ ban đầu của đĩa 1
+ví dụ: ta có mảng dữ liệu ["disk1","TowerA","TowerC"]
+- Tọa độ ban đầu của đĩa 1 = 50.
+- Khoảng cách giữa A và C =  +800
+- Chiều cao cọc đích = 0
+- New_y = 3 * 50 - 0 - 50 =100
+## Do vậy đĩa 1 sau khi sang di chuyển sang cọc C thì sẽ đi theo chiều dương trục y 1 khoảng New_y = 100 so với vị trí ban đầu
+
+
 
 
 
