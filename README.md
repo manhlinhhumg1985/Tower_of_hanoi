@@ -73,20 +73,22 @@ data = [
          hoz = begin_x + x;
 ```
 * 5. Muốn tính được tọa độ y để dịch chuyển đĩa đến cọc đích cần phải thực hiện các bước sau:
-       - Đếm số lượng đĩa tại cọc đích cần di chuyển đến: 
+* Đếm số lượng đĩa tại cọc đích cần di chuyển đến: 
     ```javascript
         count_disk = get_height(data[0][0]) = get_height("TowerC") ở đây get_height là hàm lấy số lượng đĩa trong cọc đích đã được định nghĩa.
-    
-       - Tọa độ y để dịch chuyển đến cọc đích là: 
+    ```
+* Tọa độ y để dịch chuyển đến cọc đích là: 
 ```javascript
         new_y = n * 50 -(count_disk * 50) - begin_y  
             trong đó n * 50 là tọa độ của đĩa cuối cùng trên cọc, 
             count_disk * 50 là chiều cao của cọc đích, 
             begin_y là tọa độ hiện thời của đĩa được chọn.
+```
 
-       - Tính toán độ đi lên khỏi cọc một khoảng dy của các đĩa được dịch chuyển:  
+* Tính toán độ đi lên khỏi cọc một khoảng dy của các đĩa được dịch chuyển:  
 ```javascript
         height = get_docao(data[0][0]) = get_docao("disk1") với hàm get độ cao đã được định nghĩa.
+```
 * Sau đó cần cập nhật lại số lượng đĩa trên mỗi cọc: 
 ```javascript
         update_disk(data[0][0], data[0][1], data[0][2]) = update_disk("disk1","TowerA","TowerC") 
