@@ -18,7 +18,10 @@
 ##### Vậy ta hiện có 2 đĩa đã nằm trên cọc B, cọc C hiện thời trống
 4. chuyển đĩa 3 sang cọc C
 5. lặp lại 3 bước trên để chuyển 1 & 2 cho nằm lên 3.
+```javascript
 ![Image of Ha Noi Tower](Tower_of_Hanoi.gif)
+```
+
 ### Các bước chạy của thuật toán với trường hợp n=3
 * DISKS =3          |1. Move(N-1,begin,end,med)
                     |2. Move(1,begin,med,end)
