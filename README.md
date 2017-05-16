@@ -58,15 +58,15 @@ data = [
 * Duyệt mảng data và thực hiện các bước sau:
 * 1. Lấy khoảng cách giữa 2 cọc: ví tại phần tử đầu tiên của mảng data thì sẽ được lấy như sau:
 ```javascript
-        x = get_distance( data[0][1], data[0][2]) hàm get_distance là hàm lấy khoảng cách đã được định nghĩa.
+        x = get_distance( data[0][1], data[0][2]) hàm get_distance là hàm lấy khoảng cách.
 ```
 * 2. Lấy tọa độ y hiện thời của đĩa được chọn:  
 ```javascript
         begin_y = get_y(data[0][0]) = get_y("disk1") với hàm get_y(tên disk) là hàm đã được nghĩa
 ```
-* 3. Lấy tọa độ x hiện thời của đĩa được chọc : 
+* 3. Lấy tọa độ x hiện thời của đĩa được chọn : 
 ```javascript
-        begin_x = get_x(data[0][0]) = get_x("disk1") với hàm get_x (tên disk) là hàm đã được định nghĩa
+   begin_x = get_x(data[0][0]) = get_x("disk1") với hàm get_x (tên disk) là hàm đã được định nghĩa
 ```
 * 4. Tọa độ x mà đĩa được dịch chuyển từ vị trí x hiên tại tính bằng công thức: 
 ```javascript
