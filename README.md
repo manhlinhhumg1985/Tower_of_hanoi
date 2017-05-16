@@ -22,9 +22,11 @@
 ![Image of Ha Noi Tower](Tower_of_Hanoi.gif)
 
 ### Các bước chạy của thuật toán với trường hợp n=3
-* DISKS =3          |1. Move(N-1,begin,end,med)
+ ```javascript 
+        DISKS =3    |1. Move(N-1,begin,end,med)
                     |2. Move(1,begin,med,end)
                     |3. Move (N-1,med,begin,end)
+```
 ```javascript
                     
                                 | Move(1,A,B,C)----------> (chuyển đĩa từ A -> C)(1)
