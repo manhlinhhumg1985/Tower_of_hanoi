@@ -57,14 +57,35 @@ data = [
 ```
 * Duyệt mảng data và thực hiện các bước sau:
 * 1. Lấy khoảng cách giữa 2 cọc: ví tại phần tử đầu tiên của mảng data thì sẽ được lấy như sau: x = get_distance( data[0][1], data[0][2]) hàm get_distance là hàm lấy khoảng cách đã được định nghĩa.
-* 2. Lấy tọa độ y hiện thời của đĩa được chọn:  begin_y = get_y(data[0][0]) = get_y("disk1") với hàm get_y(tên disk) là hàm đã được nghĩa
-* 3. Lấy tọa độ x hiện thời của đĩa được chọc : begin_x = get_x(data[0][0]) = get_x("disk1") với hàm get_x (tên disk) là hàm đã được định nghĩa
-* 4. Tọa độ x mà đĩa được dịch chuyển từ vị trí x hiên tại tính bằng công thức: hoz = begin_x + x;
+* 2. Lấy tọa độ y hiện thời của đĩa được chọn:  
+```javascript
+        begin_y = get_y(data[0][0]) = get_y("disk1") với hàm get_y(tên disk) là hàm đã được nghĩa
+```
+* 3. Lấy tọa độ x hiện thời của đĩa được chọc : 
+```javascript
+        begin_x = get_x(data[0][0]) = get_x("disk1") với hàm get_x (tên disk) là hàm đã được định nghĩa
+```
+* 4. Tọa độ x mà đĩa được dịch chuyển từ vị trí x hiên tại tính bằng công thức: 
+```javascript
+         hoz = begin_x + x;
+```
 * 5. Muốn tính được tọa độ y để dịch chuyển đĩa đến cọc đích cần phải thực hiện các bước sau:
-       - Đếm số lượng đĩa tại cọc đích cần di chuyển đến: count_disk = get_height(data[0][0]) = get_height("TowerC") ở đây get_height là hàm lấy số lượng đĩa trong cọc     đích đã được định nghĩa.
-       - Tọa độ y để dịch chuyển đến cọc đích là: new_y = n * 50 -(count_disk * 50) - begin_y  trong đó n * 50 là tọa độ của đĩa cuối cùng trên cọc, count_disk * 50 là chiều cao của cọc đích, begin_y là tọa độ hiện thời của đĩa được chọn.
-       - Tính toán độ đi lên khỏi cọc một khoảng dy của các đĩa được dịch chuyển:  height = get_docao(data[0][0]) = get_docao("disk1") với hàm get độ cao đã được định nghĩa.
-* Sau đó cần cập nhật lại số lượng đĩa trên mỗi cọc: update_disk(data[0][0], data[0][1], data[0][2]) = update_disk("disk1","TowerA","TowerC") có nghĩa là sẽ remove 1 đĩa từ cọc A và push vào cọc C.
+       - Đếm số lượng đĩa tại cọc đích cần di chuyển đến: 
+    ```javascript
+        count_disk = get_height(data[0][0]) = get_height("TowerC") ở đây get_height là hàm lấy số lượng đĩa trong cọc     đích đã được định nghĩa.
+```
+       - Tọa độ y để dịch chuyển đến cọc đích là: 
+```javascript
+        new_y = n * 50 -(count_disk * 50) - begin_y  trong đó n * 50 là tọa độ của đĩa cuối cùng trên cọc, count_disk * 50 là chiều cao của cọc đích, begin_y là tọa độ hiện thời của đĩa được chọn.
+```
+       - Tính toán độ đi lên khỏi cọc một khoảng dy của các đĩa được dịch chuyển:  
+```javascript
+        height = get_docao(data[0][0]) = get_docao("disk1") với hàm get độ cao đã được định nghĩa.
+```
+* Sau đó cần cập nhật lại số lượng đĩa trên mỗi cọc: 
+```javascript
+        update_disk(data[0][0], data[0][1], data[0][2]) = update_disk("disk1","TowerA","TowerC") có nghĩa là sẽ remove 1 đĩa từ cọc A và push vào cọc C.
+```
 * Thực hiện animation để di chuyển đĩa:
 ```javascript
         d3.selectAll('.' + data[i][0])
@@ -77,7 +98,12 @@ data = [
                         .transition()
                         .attr('transform', 'translate(' + hoz + ',' + new_y + ')')
 ```
-* Cuối cùng gán lại tọa độ mới cho x: set_x(data[i][0], x) trong đó x: đã được tính toán ở trên 
+* Cuối cùng gán lại tọa độ mới cho x: 
+```javascript
+        set_x(data[i][0], x) trong đó x: đã được tính toán ở trên 
+```
+* Hình vẽ minh họa tính toán:
+
 
 
 
