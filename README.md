@@ -115,6 +115,8 @@ data = [
 ```
 * Hình vẽ minh họa tính toán:
 
+![Image of Ha Noi Tower](IMG_2649.JPG)
+
 
 
 
