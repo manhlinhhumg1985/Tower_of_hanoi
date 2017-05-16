@@ -123,7 +123,8 @@ data = [
 * Tính độ cao lớn nhất của đĩa tương đương với độ cao của đĩa cuối cùng = n * 50
 với n là tổng số đĩa, 50 là chiều dày của đĩa.
 * Xác định số đĩa có trên cọc đích (trường hợp này cọc đích giả sử là cọc C) thì số lượng đĩa sẽ là 0 => chiều cao của cọc đích = số đĩa * 50 =0
-* Tọa độ y của đĩa sau khi di chuyển sang cọc C: New_y = n*50 - chiều cao cọc đích - tọa độ ban đầu của đĩa 1
+* Công thức tính tọa độ y của đĩa sau khi di chuyển sang cọc C: 
+## New_y = n*50 - chiều cao cọc đích - tọa độ ban đầu của đĩa 1
 ví dụ: ta có mảng dữ liệu ["disk1","TowerA","TowerC"]
 - Tọa độ ban đầu của đĩa 1 = 50.
 - Khoảng cách giữa A và C =  +800
