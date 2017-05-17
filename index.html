@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="d3/d3.js" type="text/JavaScript"></script>
-    <script src="script.js"></script>
+
     <title>Title</title>
     <style>
 
@@ -20,76 +20,7 @@
         <button onclick="next1()">Bat Dau</button>
     </div>
 </div>
-<script>
-    /**
-     * Created by thanhhuyen on 5/16/17.
-     */
-    class Disk {
-        constructor(diameter) {
-            this.diameter = diameter
-        }
-
-        disk() {
-            return this.diameter
-        }
-    }
-    class Tower {
-        constructor(nameTowers, nameDisks) {
-            this.name = nameTowers
-            this.disk = new Disk(nameDisks).disk()
-        }
-
-        tower() {
-            return {name: this.name, disks: this.disk}
-        }
-    }
-
-    let n = 4;
-    //Tao so luowng dia
-    let arr_disk = []
-    for (let i = 1; i <= n; i++) {
-        arr_disk.push("disk" + i);
-    }
-    let nameTowers = ['TowerA', 'TowerB', 'TowerC']
-    let nameDisk2 = [];
-    let nameDisk3 = []
-    let nameDisks = arr_disk;
-    let tower1 = new Tower(nameTowers[0], nameDisks).tower()
-    let tower2 = new Tower(nameTowers[1], nameDisk2).tower()
-    let tower3 = new Tower(nameTowers[2], nameDisk3).tower();
-    let disk_obj = [];//mảng chứa các đối tượng disk
-    class GameEngine {
-        constructor() {
-            this.data = []
-            this.count = 0
-        }
-
-        move(totalDisks, towerA, towerB, towerC) {
-            if (totalDisks > 0) {
-                this.move(totalDisks - 1, towerA, towerC, towerB)
-                // console.log("Move " + nameDisks[n - 1] + " from " + a + " to " + c)
-                this.data.push([nameDisks[totalDisks - 1], towerA, towerC])
-                this.move(totalDisks - 1, towerB, towerA, towerC)
-                this.count++
-            }
-            return this.data
-        }
-    }
-    let result = new GameEngine()
-    let data = result.move(nameDisks.length, tower1.name, tower2.name, tower3.name)
-    const div = d3.select("body").append("div").style("text-align", "center")
-    const svg = div.append("svg").attr("width", 1200).attr("height", 600)
-    //------------------------- Vẽ 3 cọc -------------------
-    draw_pipe(100 + (n * 50) / 2, 100, 100 + (n * 50) / 2, n * 50 + 150);
-    draw_pipe(500 + (n * 50) / 2, 100, 500 + (n * 50) / 2, n * 50 + 150);
-    draw_pipe(900 + (n * 50) / 2, 100, 900 + (n * 50) / 2, n * 50 + 150);
-    //------------------------ vẽ đế cọc--------------------
-    let x1_ = 100 + (n * 50) / 2
-    let y1_ = n * 50 + 154
-    draw_bottom(100, y1_, 100 + 800 + n * 50, y1_)
-    //-----------------vẽ n đĩa trên cọc ban đầu------------------
-    draw(n);
-</script>
+<script src="script.js"></script>
 </body>
 </html>
 
