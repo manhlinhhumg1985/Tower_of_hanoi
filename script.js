@@ -161,7 +161,7 @@ let draw = (sum_disk) => {
             .attr("ry", 6)
             .attr("stroke-width", 3)
             .attr("stroke", "black")
-            .attr("fill", "green")
+            .attr("fill", "blue")
             .classed("disk" + i, true)
             .classed("color", true);
         //Tao đối tượng đĩa
@@ -181,7 +181,7 @@ let draw_bottom = (x1, y1, x2, y2) => {
         .attr("y1", y1)
         .attr("x2", x2)
         .attr("y2", y2)
-        .attr("stroke-width", 10)
+        .attr("stroke-width", 8)
         .attr("stroke", "black")
 }
 let y1_ = n * deept + 154
@@ -206,6 +206,7 @@ const next1 = () => {
             .attr("transform", 'translate(' + hoz + ',' + height + ')')
             .transition()
             .attr('transform', 'translate(' + hoz + ',' + new_y + ')')
+
         set_x(data[i][0], x)                            //cap nhat toa độ x cho đĩa
     }
 }

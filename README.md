@@ -44,42 +44,16 @@ Move(3,A,B,C)-->|Move(1,A,B,C)---------------------------> (chuyển đĩa từ 
 
 * Theo sơ đồ trên thì các bước chạy của thuật toán sẽ đi từ (1)..->(7)
 * Sau mỗi lần chuyển đĩa thì ta sẽ push dữ liệu vào mảng data với data là 1 mảng bên trong có các phần tử là các mảng kết quả được thực hiện ở mỗi lần kết thúc 1 lệnh gọi đệ quy.
-* ví dụ: ở lần 1 kết quả trả ra là 1 mảng ['disk 1', 'Tower A', 'Tower C'] có nghĩa là dịch chuyển 1 đĩa từ A sang C như vậy sau 2^n -1 lần gọi đệ quy thì ta sẽ thu được 1 mảng dữ liệu như sau:
+* ví dụ: ở lần 1 kết quả trả ra là 1 mảng có các thành phần là các object như vậy sau 2^n -1 lần gọi đệ quy thì ta sẽ thu được 1 mảng dữ liệu như sau:
 ```javascript
 data = [
-            [ 'disk 1', 'Tower A', 'Tower C' ],
-            [ 'disk 2', 'Tower A', 'Tower B' ],
-            [ 'disk 1', 'Tower C', 'Tower B' ],
-            [ 'disk 3', 'Tower A', 'Tower C' ],
-            [ 'disk 1', 'Tower B', 'Tower A' ],
-            [ 'disk 2', 'Tower B', 'Tower C' ],
-            [ 'disk 1', 'Tower A', 'Tower C' ]
+            {diskTopick:Disk, fromTower: TowerA, toTower: TowerC}
+            .....
 
     ]
+với diskTopick, fromTower, toTower là các đối tượng
 ```
-* Duyệt mảng data và thực hiện các bước sau:
-* 1. Lấy khoảng cách giữa 2 cọc: ví tại phần tử đầu tiên của mảng data thì sẽ được lấy như sau:
-```javascript
-        x = get_distance( data[0][1], data[0][2]) hàm get_distance là hàm lấy khoảng cách.
-```
-* 2. Lấy tọa độ y hiện thời của đĩa được chọn:  
-```javascript
-        begin_y = get_y(data[0][0]) = get_y("disk1") với hàm get_y(tên disk) là hàm đã được nghĩa
-```
-* 3. Lấy tọa độ x hiện thời của đĩa được chọn : 
-```javascript
-   begin_x = get_x(data[0][0]) = get_x("disk1") với hàm get_x (tên disk) là hàm đã được định nghĩa
-```
-* 4. Tọa độ x mà đĩa được dịch chuyển từ vị trí x hiên tại tính bằng công thức: 
-```javascript
-         hoz = begin_x + x;
-```
-* 5. Muốn tính được tọa độ y để dịch chuyển đĩa đến cọc đích cần phải thực hiện các bước sau:
-* Đếm số lượng đĩa tại cọc đích cần di chuyển đến: 
-```javascript
-    count_disk = get_height(data[0][0]) = get_height("TowerC") 
-        ở đây get_height là hàm lấy số lượng đĩa trong cọc đích đã được định nghĩa.
-```
+
 * Tọa độ y để dịch chuyển đến cọc đích là: 
 ```javascript
         new_y = n * 50 -(count_disk * 50) - begin_y  
@@ -88,6 +62,7 @@ data = [
             begin_y là tọa độ hiện thời của đĩa được chọn.
 ```
 * Hình vẽ minh họa tính toán:
+
 
 ![Image of Ha Noi Tower](IMG_2649.JPG)
 
@@ -99,7 +74,6 @@ với n là tổng số đĩa, 50 là chiều dày của đĩa.
 * Xác định số đĩa có trên cọc đích (trường hợp này cọc đích giả sử là cọc C) thì số lượng đĩa sẽ là 0 => chiều cao của cọc đích = số đĩa * 50 =0
 * Công thức tính tọa độ y của đĩa sau khi di chuyển sang cọc C: 
 ## New_y = n*50 - chiều cao cọc đích - tọa độ ban đầu của đĩa 1
-ví dụ: ta có mảng dữ liệu ["disk1","TowerA","TowerC"]
 - Tọa độ ban đầu của đĩa 1 = 50.
 - Khoảng cách giữa A và C =  +800
 - Chiều cao cọc đích = 0
@@ -107,29 +81,24 @@ ví dụ: ta có mảng dữ liệu ["disk1","TowerA","TowerC"]
 ## Do vậy đĩa 1 sau khi sang di chuyển sang cọc C thì sẽ đi theo chiều dương trục y 1 khoảng New_y = 100 so với vị trí ban đầu
 
 * Tính toán độ đi lên khỏi cọc một khoảng dy của các đĩa được dịch chuyển:  
-```javascript
-        height = get_docao(data[0][0]) = get_docao("disk1") với hàm get độ cao đã được định nghĩa.
-```
 * Sau đó cần cập nhật lại số lượng đĩa trên mỗi cọc: 
-```javascript
-        update_disk(data[0][0], data[0][1], data[0][2]) = update_disk("disk1","TowerA","TowerC") 
-        có nghĩa là sẽ remove 1 đĩa từ cọc A và push vào cọc C.
-```
 * Thực hiện animation để di chuyển đĩa:
-```javascript
-        d3.selectAll('.' + data[i][0])
-                        .transition()
-                        .delay(i * 3000)
-                        .duration(1000)
-                        .attr("transform", 'translate(' + begin_x + ',' + height + ')')
-                        .transition()
-                        .attr("transform", 'translate(' + hoz + ',' + height + ')')
-                        .transition()
-                        .attr('transform', 'translate(' + hoz + ',' + new_y + ')')
+```javascript4
+         d3.selectAll('.' + data[i].diskToPick.name)
+                .transition()
+                .delay(i * animationDelay)
+                .duration(animationDuration)
+                .attr('transform', 'translate(' + this.begin_x + ',' + this.pickUpHeight + ')')
+                .transition()
+                .attr('transform', 'translate(' + this.new_x + ',' + this.pickUpHeight + ')')
+                .transition()
+                .attr('transform', 'translate(' + this.new_x + ',' + this.new_y + ')')
+
+                       
 ```
 * Cuối cùng gán lại tọa độ mới cho x: 
 ```javascript
-        set_x(data[i][0], x) trong đó x: đã được tính toán ở trên 
+        data[i].diskToPick.x_ += this.distenceBetweenTowers
 ```
 
 
