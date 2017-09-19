@@ -101,6 +101,7 @@ với n là tổng số đĩa, 50 là chiều dày của đĩa.
         data[i].diskToPick.x_ += this.distenceBetweenTowers
 ```
 * Kết quả bài toán ứng với các trạng thái bắt đầu và kết thúc
+* Với n=4 thì cần 2^n -1 bước chuyển đĩa = 16-1 = 15 lần chuyển
 * Trạng thái bắt đầu
     ![Image of Ha Noi Tower](batdau.png)
 
