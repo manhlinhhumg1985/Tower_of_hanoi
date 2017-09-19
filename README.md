@@ -102,14 +102,14 @@ với n là tổng số đĩa, 50 là chiều dày của đĩa.
 ```
 * Kết quả bài toán ứng với các trạng thái bắt đầu và kết thúc
 ## Trạng thái bắt đầu
-![Image of Ha Noi Tower](Screenshot from 2017-09-19 20-41-43.JPG)
+    ![Image of Ha Noi Tower](batdau.JPG)
 
 ## 1 trong những trạng thái trung gian
 
-![Image of Ha Noi Tower](Screenshot from 2017-09-19 20-42-08.JPG)
+    ![Image of Ha Noi Tower](trunggian.JPG)
 
 ## Trạng thái kết thúc
-![Image of Ha Noi Tower](Screenshot from 2017-09-19 20-42-50.JPG)
+    ![Image of Ha Noi Tower](ketthuc.JPG)
 
 
 
