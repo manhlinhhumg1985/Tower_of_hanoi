@@ -101,14 +101,14 @@ với n là tổng số đĩa, 50 là chiều dày của đĩa.
         data[i].diskToPick.x_ += this.distenceBetweenTowers
 ```
 * Kết quả bài toán ứng với các trạng thái bắt đầu và kết thúc
-## Trạng thái bắt đầu
+* Trạng thái bắt đầu
     ![Image of Ha Noi Tower](batdau.png)
 
-## 1 trong những trạng thái trung gian
+* 1 trong những trạng thái trung gian
 
     ![Image of Ha Noi Tower](trunggian.png)
 
-## Trạng thái kết thúc
+* Trạng thái kết thúc
     ![Image of Ha Noi Tower](ketthuc.png)
 
 
