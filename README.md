@@ -111,6 +111,7 @@ với n là tổng số đĩa, 50 là chiều dày của đĩa.
 
 * Trạng thái kết thúc
     ![Image of Ha Noi Tower](ketthuc.png)
+----------------------------------------
 
 
 
