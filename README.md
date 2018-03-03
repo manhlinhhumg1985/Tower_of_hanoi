@@ -1,5 +1,5 @@
 # Tower_of_hanoi
-## Sử dụng thư viện D3.js
+## Sử dụng thư viện D3.js, Javascript
 * Download trực tiếp trên trang chủ D3js.com
 * Dùng link CDN
 ## Phân tích bài toán
