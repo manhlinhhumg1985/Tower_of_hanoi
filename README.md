@@ -1,4 +1,4 @@
-# Tower_of_hanoi
+﻿# Tower_of_hanoi
 ## Sử dụng thư viện D3.js, Javascript
 * Download trực tiếp trên trang chủ D3js.com
 * Dùng link CDN
@@ -111,7 +111,7 @@ với n là tổng số đĩa, 50 là chiều dày của đĩa.
 
 * Trạng thái kết thúc
     ![Image of Ha Noi Tower](ketthuc.png)
-----------------------------------------
+--------------------------------------------
 
 
 
